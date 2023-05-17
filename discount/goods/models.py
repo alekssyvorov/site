@@ -5,7 +5,7 @@ import datetime
 class Products(models.Model):
     rating = models.IntegerField()
     img = models.ImageField(upload_to='goods/images/', default=None)
-    title = models.CharField(max_length=180)
+    title = models.CharField(max_length=180, default='Название товара')
     description = models.CharField(max_length=280)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     company = models.CharField(max_length=50, default='Кампания')
