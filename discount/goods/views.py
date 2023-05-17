@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Register
+from .models import Register, Products
+
 
 # Create your views here.
 def index(request):
@@ -18,9 +19,9 @@ def addUser(request):
             email = request.POST.get("email")
             response = f'Привет {loginUser}{password}{email}'
             print(response)
-            dataBD = Register(name=loginUser, password=password, email=email)
-            dataBD.save()
-        except:
+            dataBD = Register.objects.get_or_create(name=loginUser, password=password, email=email)
+            # dataBD.save()
+        except ValueError:
             print("Нет данных")
     else:
         response = 'не работает'
@@ -29,3 +30,7 @@ def addUser(request):
 def user_register(request):
     user_reg = Register.objects.all()
     return HttpResponse(user_reg)
+
+def add_products(request):
+    products = Products.objects.all()
+    return HttpResponse(products)
