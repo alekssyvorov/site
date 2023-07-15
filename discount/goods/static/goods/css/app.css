@@ -1,15 +1,15 @@
 @charset "UTF-8";
 @font-face {
   font-family: "Circe";
-  src: url("../fonts/Circe-Regular.woff") format("woff"), url("../fonts/Circe-Regular.ttf") format("opentype");
+  src: url("Circe-Regular.woff") format("woff"), url("Circe-Regular.ttf") format("opentype");
 }
 @font-face {
   font-family: "Circe Bold";
-  src: url("../fonts/Circe-Bold.woff") format("woff"), url("../fonts/Circe-Bold.ttf") format("opentype");
+  src: url("Circe-Bold.woff") format("woff"), url("Circe-Bold.ttf") format("opentype");
 }
 @font-face {
   font-family: "Malayalam MN";
-  src: url("../fonts/Malayalam-MN.woff") format("woff"), url("../fonts/Malayalam-MN.ttf") format("opentype");
+  src: url("Malayalam-MN.woff") format("woff"), url("Malayalam-MN.ttf") format("opentype");
 }
 /*!
  * Bootstrap  v5.2.3 (https://getbootstrap.com/)
