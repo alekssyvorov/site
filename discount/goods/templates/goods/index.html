@@ -1,0 +1,15 @@
+{% extends 'goods/base.html' %}
+{% load static %}
+{% block content %}
+
+    {% for pr in products %}
+        <h2>{{ pr.title }}</h2><br>
+
+        <p><h3>{{ pr.company }}</h3><br>
+        <img src="{% static 'goods\img\1.jpg'  %}" height="300"><br>
+        {{ pr.price }}<br>
+        <h2>{{ pr.description }}</h2><br>
+    {% endfor %}
+
+
+{% endblock %}

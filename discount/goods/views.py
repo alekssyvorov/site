@@ -1,35 +1,45 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .models import Register, Products
+
+from .models import Products, Register
 
 
-# Create your views here.
 def index(request):
-    return HttpResponse("<h2>Привет мир</h2>")
+    products = Products.objects.all()
+    return render(request, "goods/index.html", {"products": products})
+
 
 def register(request):
-    return render(request, 'good/register.html')
+    return render(request, "goods/register.html")
+
+
+def product(request):
+    products = Products.objects.all()
+    return render(request, "goods/product.html", {"products": products})
+
 
 def addUser(request):
-    print(request)
     if request.POST:
         try:
             loginUser = request.POST.get("login")
             password = request.POST.get("password")
             email = request.POST.get("email")
-            response = f'Привет {loginUser}{password}{email}'
-            print(response)
+            response = f"Привет {loginUser}{password}{email}"
             dataBD = Register.objects.get_or_create(name=loginUser, password=password, email=email)
             # dataBD.save()
         except ValueError:
-            print("Нет данных")
+            with open("loger.txt", "a") as loger:
+                loger.write("Нет данных")
     else:
-        response = 'не работает'
+        response = "не работает"
     return HttpResponse(response)
-    # return render(request, 'good/register.html')
+    # return render(response, "goods/register.html")
+
+
 def user_register(request):
     user_reg = Register.objects.all()
     return HttpResponse(user_reg)
+
 
 def add_products(request):
     products = Products.objects.all()
